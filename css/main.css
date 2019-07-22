@@ -2132,10 +2132,7 @@ button.button {
       text-align: center; } }
 
 .header-02__right, .header-21__right, .header-54__right {
-  /*animation: change-background 35s cubic-bezier(0.49, 0.03, 0, 1) infinite;*/
-  background-image: url("../img/screenshots/background.png");
-  background-size: auto;
-  background-repeat: no-repeat;
+  animation: change-background 35s cubic-bezier(0.49, 0.03, 0, 1) infinite;
 }
   @media (max-width: 900px) {
     .header-02__right, .header-21__right, .header-54__right {

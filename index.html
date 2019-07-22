@@ -6,8 +6,23 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lora" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <meta name="generator" content="Unicorn Platform" />
     <title>Postm</title>
   </head>
@@ -17,10 +32,10 @@
   <div class="header-21__wrapper">
     <div class="header-21__left">
       <div class="header-21__left_content"><a class="header-21__logo_link" href="#">
-          <img src="img/logos/postm.png" alt="Emoji" height="100">
+          <img src="img/logos/postm_logo_2.png" alt="postm " width="100">
         </a>
-        <h1 class="heading header-21__heading">Easy postmortems for software teams</h1>
-        <p class="header-21__text">Postm helps you build great postmortems with standard templates and markdown.</p>
+        <h1 class="heading header-21__heading">Intelligent software postmortems.</h1>
+        <p class="header-21__text">We help Software Teams do better postmortems by giving them standard templates, markdown and connecting them in a community.</p>
         <div class="buttons-set header-21__buttons">
           <ul class="buttons-set__list">
             <li class="buttons-set__item"><a class="button   button--alt-accent-bg " href="#signup" target=""><span>Sign Up</span></a>
@@ -34,7 +49,6 @@
     </div>
     <div class="header-21__right">
       <div class="header-21__mockup">
-        <img src="img/screenshots/background_2.png" alt="Emoji" height="500"/>
       </div>
     </div>
   </div>
@@ -45,9 +59,9 @@
   <div class="container container--small">
     <div class="features-01__title_box">
       <div class="subheading">Why are we building postm?</div>
-      <h2 class="heading heading--accent">Software postmortems should be easier!
+      <h2 class="heading heading--accent">We think postmortems can be better <img class="emoji" src="img/emoji/bicep.png" alt="Emoji" />
       </h2>
-      <p>Everything fails, give your users better insights into why, and your teams better insight into what.</p>
+      <p>With smarter tools and a community around you, we think everyone can do great postmortems. Great postmortems make happier teams, and happier customers.</p>
     </div>
   </div>
   <div class="container">
@@ -110,15 +124,18 @@
         // If you need help with setting up the MailChimp form you can check the handy guides: https://unicornplatform.com/blog/category/guides-%F0%9F%8D%93/
         // If you need an assistance of a tech guy, simply ask in the chat on website or join Unicorn Platform Slack channel.
         -->
-        <form class="form js-subscribe-mailchimp-form" action="https://unicornplatform.us18.list-manage.com/subscribe/post?u=b5a4c18c515b0b1b6f7f7f272&amp;amp;id=5238fd87f4" method="post">
+        <form class="form js-subscribe-mailchimp-form" id="register-form" name="register" data-netlify="true" method="post">
           <div class="form__inputs">
             <div class="form__input">
-              <input class="text-input js-email-input" type="email" name="EMAIL" placeholder="Enter your email"/>
+              <input class="text-input js-email-input" type="email" name="EMAIL" placeholder="Enter your email" required="true" />
+
               <div class="form__messages">
                 <div class="message message--engaging js-message js-engaging-message" data-index="email-form-15">
                   <div class="message__box">
                     <button class="message__close js-close-message" type="button"><img class="message__close_icon" src="img/icons/corner-top--blue.svg"/></button>
                     <div class="message__body">
+
+                      <!--
                       <div class="message__in">
                         <div class="message__bubble">
                           <div class="message__bubble_text">Exciting product updates.</div>
@@ -130,7 +147,8 @@
                           <div class="message__bubble_text">Exclusive discounts and gifts<img class="emoji  " src="img/emoji/smirking.png" alt="Emoji"/>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
+
                       <div class="message__out">
                         <div class="message__out_box">
                           <div class="message__bubble">
@@ -140,8 +158,10 @@
                           </div>
                         </div>
                       </div>
+
                     </div>
-                    <div class="message__reply_box">
+
+                    <!--<div class="message__reply_box">
                       <div class="message__reply_word">Reply</div>
                       <div class="message__options">
                         <div class="message__option">
@@ -153,9 +173,10 @@
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </div>-->
                   </div>
                 </div>
+
                 <div class="message message--success js-message js-success-message">
                   <div class="message__box">
                     <button class="message__close js-close-message" type="button"><img class="message__close_icon" src="img/icons/corner-top--blue.svg"/></button>
