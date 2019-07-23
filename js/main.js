@@ -228,18 +228,120 @@ window.addEventListener('DOMContentLoaded', function (){
 
 
     // START OF: subscribe Mailchimp form =====
-    $("#register-form").submit(function(e) {
+    window['unicornplatform'].subscribeMailchimpForm = (function(){
+        var init = function () {
+            var $forms = $('.js-subscribe-mailchimp-form');
 
-      e.preventDefault();
-      
-      var $form = $(this);
-      $.post($form.attr("action"), $form.serialize()).then(function() {
-        alert("Thank you!");
-      });
-    });
+            var formsCount = $forms.length;
+            for(var i = 0; i < formsCount; i++){
+                var $currentForm = $forms.eq(i);
+                bind($currentForm);
+            }
+
+            function bind($emailForm) {
+                var $engagingMessage = $emailForm.find('.js-engaging-message');
+                var $successMessage = $emailForm.find('.js-success-message');
+                var $errorMessage = $emailForm.find('.js-error-message');
+                var $submitButton = $emailForm.find('.js-submit-button');
+                var $input = $emailForm.find('.js-email-input');
+
+                function signUp() {
+                    function fixActionAttr(initialAction) {
+                        //to enable AJAX requests we need to add some specific parts to the action attribute
+                        //before: https://unicornplatform.us18.list-manage.com/subscribe/post?u=b5a4c18c515b0b1b6f7f7f272&amp;id=5238fd87f4
+                        //after: https://unicornplatform.us18.list-manage.com/subscribe/post-json?u=b5a4c18c515b0b1b6f7f7f272&amp;id=5238fd87f4&c=?
+                        var fixedAction = '';
+                        fixedAction = initialAction.replace(/post\?u=/i, 'post-json?u=');
+                        fixedAction = fixedAction + "&c=?";
+
+                        return fixedAction;
+                    }
+
+                    button.showSpinner($submitButton);
+                    button.disableSubmit($submitButton);
+
+                    $.ajax({
+                        type: $emailForm.attr('method'),
+                        url: fixActionAttr($emailForm.attr('action')),
+                        data: $emailForm.serialize(),
+                        cache: false,
+                        dataType: 'json',
+                        contentType: "application/json; charset=utf-8"
+                    })
+                        .done(function(data) {
+                            function trimCode(string) {
+                                //cut off the mailchimp meta data code user doesn't need to see
+                                if(string.indexOf('0 -') === 0){
+                                    return string.slice(4);
+                                }else{
+                                    return string;
+                                }
+                            }
+
+                            if (data.result != "success") {
+                                message.hide([$successMessage, $engagingMessage, $errorMessage]);
+                                message.show($errorMessage, trimCode(data.msg));
+
+                                button.stopSpinner($submitButton);
+                                button.enableSubmit($submitButton);
+                            } else {
+                                message.hide([$successMessage, $engagingMessage, $errorMessage]);
+                                message.show($successMessage);
+
+                                button.showSuccessTick($submitButton);
+
+                                //Remove spinner a bit later
+                                setTimeout(function(){
+                                    button.stopSpinner($submitButton);
+                                }, 200);
+
+                                setTimeout(function(){
+                                    button.removeSuccessTick($submitButton);
+                                    button.enableSubmit($submitButton);
+                                }, 3000);
+                            }
+                        })
+                        .fail(function(response) {
+                            button.stopSpinner($submitButton);
+                            button.enableSubmit($submitButton);
+
+                            message.hide([$successMessage, $engagingMessage, $errorMessage]);
+                            message.show($errorMessage, 'Uh. We could not connect to the server. Please try again later.');
+                        })
+                        .always(function(response) {
+                            console.log(response);
+                        });
+                }
+
+                $emailForm.on('submit', function(event) {
+                    event.preventDefault();
+                    signUp($(this));
+                });
+
+                $input.on('keypress', '', function(event) {
+                    if (event.which === 13) {
+                        // On enter.
+                        $emailForm.submit();
+                        return false;
+                    }
+                });
+
+                $input.on('focus', '', function(event) {
+                    event.preventDefault();
+                    message.hide([$successMessage, $engagingMessage, $errorMessage]);
+                }).on('blur', '', function(event) {
+                    event.preventDefault();
+                });
+            }
+        };
+
+        return{
+            init: init
+        }
+    }());
 
     //Initiate the plugin. It's window-scoped because we want to init this component also after it's dynamically added in the Unicorn Platform builder app.
-    //window['unicornplatform'].subscribeMailchimpForm.init();
+    window['unicornplatform'].subscribeMailchimpForm.init();
     // ===== END OF: subscribe Mailchimp form
 
 
