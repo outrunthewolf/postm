@@ -1358,6 +1358,20 @@ button.button {
   flex-wrap: wrap;
   padding: 7px 15px; }
 
+.via-unicorn-platform ul {
+
+}
+
+.via-unicorn-platform ul li {
+  list-style: none;
+}
+
+.via-unicorn-platform ul li a {
+  display: block;
+  float: left;
+  padding: 0px 10px 0px 10px;
+}
+
 .via-unicorn-platform__link {
   vertical-align: middle;
   text-decoration: none;
@@ -2156,11 +2170,17 @@ button.button {
 .header-02__mockup, .header-21__mockup, .header-54__mockup {
   display: inline-block;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
   text-align: center; }
   .header-02__mockup .mockup, .header-21__mockup .mockup, .header-54__mockup .mockup {
     width: 100%; }
   .header-02__mockup .mockup__case, .header-21__mockup .mockup__case, .header-54__mockup .mockup__case {
     margin: auto; }
+  .header-02__mockupimg img, .header-21__mockup img, .header-54__mockup img {
+    padding: 20px;
+    height: 100%;
+  }
 
 @keyframes change-background {
   0% {
