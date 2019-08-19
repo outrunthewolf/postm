@@ -6,4 +6,9 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://postm.dev/posts/top-5-best-postmortem-templates.html</loc>
+    <lastmod>2019-08-19T09:43:43+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>
