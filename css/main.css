@@ -1794,6 +1794,21 @@ button.button {
     cursor: pointer;
     transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; }
 
+.blog-content {
+  text-align: left;
+  margin-top: 50px;
+}
+
+.blog-content ul {
+  margin-left: 1.5em;
+}
+
+.blog-content img {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2), 0 5px 15px 0 rgba(37, 44, 97, 0.15)
+}
+
 .title-box {
   margin-bottom: 50px;
   max-width: 700px; }
@@ -3143,7 +3158,7 @@ button.button {
       padding-top: 100px; } }
 
 .header-39__text_box, .header-40__text_box, .header-41__text_box, .header-42__text_box {
-  max-width: 450px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto; }
 
