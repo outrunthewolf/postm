@@ -1809,6 +1809,16 @@ button.button {
   box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2), 0 5px 15px 0 rgba(37, 44, 97, 0.15)
 }
 
+.blog-content p.quote {
+  margin: 1em 2em 1em 1em;
+  border-left: solid 2px #cccbca;
+  padding: 20px;
+}
+
+.blog-content h2 {
+  margin-bottom: 1.5em;
+}
+
 .title-box {
   margin-bottom: 50px;
   max-width: 700px; }
